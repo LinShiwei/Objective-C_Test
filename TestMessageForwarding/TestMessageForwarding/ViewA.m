@@ -7,11 +7,15 @@
 //
 
 #import "ViewA.h"
-@interface ViewA ()
+@interface ViewA (){
+//@public NSString *_aString;
+}
 @property (weak,nonatomic) id target;
+@property (strong,nonatomic) NSString *aString;
 @end
 
 @implementation ViewA
+
 
 /*
 // Only override drawRect: if you perform custom drawing.
@@ -41,6 +45,7 @@
         _target = target;
         _str = @"";
         __strTest = @"";
+        _aString = @"";
     }
     return self;
 }
@@ -75,5 +80,9 @@
 
 - (void)setStr:(NSString *)str{
     _str = str;
+}
+
+- (void)testOverride{
+    ClassMethodCallLog(@"testOverride");
 }
 @end

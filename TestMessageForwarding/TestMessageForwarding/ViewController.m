@@ -20,32 +20,43 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-//    _viewB = [[ViewB alloc] init];
+    _viewB = [[ViewB alloc] init];
+
+    _viewA = [[ViewA alloc] initWithForwardingTarget:_viewB];
+    _viewSubA = [[ViewSubA alloc] initWithForwardingTarget:_viewB];
+    _viewSubA1 = [[ViewSubA1 alloc] initWithForwardingTarget:_viewB];
+
+//    id vA = _viewA;
+//    [vA testPolymorphic];
 //
-//    _viewA = [[ViewA alloc] initWithForwardingTarget:_viewB];
-//    _viewSubA = [[ViewSubA alloc] initWithForwardingTarget:_viewB];
-//    _viewSubA1 = [[ViewSubA1 alloc] initWithForwardingTarget:_viewB];
+//    [_viewA setValue:@"a" forKey:@"_strTest"];
+//    [_viewA setValue:@"b" forKey:@"strTest"];
+
+    
+    
+    id vSubA = _viewSubA;
+    [vSubA printSomething];
+    [vSubA testPolymorphic];
+    
+    id vSubA1 = _viewSubA1;
+    [vSubA1 testPolymorphic];
+    BOOL res = [vSubA1 respondsToSelector:@selector(testPolymorphic)];
 //
-////    id vA = _viewA;
-////    [vA testPolymorphic];
-////
-////    [_viewA setValue:@"a" forKey:@"_strTest"];
-////    [_viewA setValue:@"b" forKey:@"strTest"];
-//
-//    
-//    
-//    id vSubA = _viewSubA;
-//    [vSubA printSomething];
-//    [vSubA testPolymorphic];
-//    
-//    id vSubA1 = _viewSubA1;
-//    [vSubA1 testPolymorphic];
-//    BOOL res = [vSubA1 respondsToSelector:@selector(testPolymorphic)];
-////
-////    [_viewA setValue:@"aaa" forKey:@"lswDescription"];
+//    [_viewA setValue:@"aaa" forKey:@"lswDescription"];
 //    [_viewA testSuper];
     
+    _viewA->_aString = @"";
+    _viewA.str = @"";
+    [_viewA testOverride];
     
+    unsigned int count = 0 ;
+    Method *methodList = class_copyMethodList(objc_getClass("ViewA"), &count);
+    
+    NSMutableArray<NSString *> *methodArray = [NSMutableArray array];
+    for (int i = 0; i<count; i++) {
+        NSString *name = NSStringFromSelector(method_getName(methodList[i]));
+        [methodArray addObject:name];
+    }
 }
 
 

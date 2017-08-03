@@ -10,6 +10,7 @@
 
 @interface ViewA (View_TestSuper)
 
-- (void)testSuper;
+//- (void)testSuper;
+//- (void)testOverride;
 
 @end

@@ -31,6 +31,9 @@
 
 - (void)testPolymorphic{
     ClassMethodCallLog(@"testPolymorphic");
+    _aString = @"aa";
+    self.str = @"aaaa";
+    
 }
 
 @end

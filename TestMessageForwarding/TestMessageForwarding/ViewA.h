@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "define.h"
-@interface ViewA : UIView
+@interface ViewA : UIView{
+    @public NSString *_aString;
+
+}
 - (instancetype)initWithForwardingTarget:(id)target;
 
 - (void)testPolymorphic;
+- (void)testOverride;
 
 @property (strong,nonatomic) NSString *str;
 @property (strong,nonatomic) NSString *_strTest;
