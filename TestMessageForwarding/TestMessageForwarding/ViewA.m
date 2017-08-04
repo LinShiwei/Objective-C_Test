@@ -50,6 +50,33 @@
     return self;
 }
 
++ (BOOL)resolveClassMethod:(SEL)sel{
+    return [super resolveClassMethod:sel];
+}
+
++ (BOOL)resolveInstanceMethod:(SEL)sel{
+    if ([NSStringFromSelector(sel) isEqualToString:@"printSomething"]) {
+        return true;
+    }
+    return [super resolveInstanceMethod:sel];
+}
+
+- (id)forwardingTargetForSelector:(SEL)aSelector{
+    if ([NSStringFromSelector(aSelector) isEqualToString:@"printClassMethodB"]) {
+        return [_target class];
+    }
+    
+    return [super forwardingTargetForSelector:aSelector];
+}
+
++ (id)forwardingTargetForSelector:(SEL)aSelector{
+//    if ([NSStringFromSelector(aSelector) isEqualToString:@"printClassMethodB"]) {
+//        return NSClassFromString(@"ViewB");
+//    }
+    
+    return [super forwardingTargetForSelector:aSelector];
+}
+
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector{
     return [_target methodSignatureForSelector:aSelector];
 }
@@ -60,6 +87,14 @@
 //    _str = @"C";
 //    self.str = @"b";
 //    self.testPolymorphic;
+}
+
++ (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector{
+    return [NSClassFromString(@"ViewB") methodSignatureForSelector:aSelector];
+}
+
++ (void)forwardInvocation:(NSInvocation *)anInvocation{
+    [anInvocation invokeWithTarget:NSClassFromString(@"ViewB")];
 }
 
 
@@ -84,5 +119,9 @@
 
 - (void)testOverride{
     ClassMethodCallLog(@"testOverride");
+}
+
+- (void)somtFunc{
+    ClassMethodCallLog(@"somtFunc");
 }
 @end

@@ -31,18 +31,25 @@
 //
 //    [_viewA setValue:@"a" forKey:@"_strTest"];
 //    [_viewA setValue:@"b" forKey:@"strTest"];
-
+    [_viewA somtFunc];
     
     
     id vSubA = _viewSubA;
     [vSubA printSomething];
     [vSubA testPolymorphic];
     
+    [vSubA printB];
+    [vSubA printClassMethodB];
+
+    id vClassA = [_viewA class];
+    [vClassA printClassMethodB];
+
+    
     id vSubA1 = _viewSubA1;
     [vSubA1 testPolymorphic];
-    BOOL res = [vSubA1 respondsToSelector:@selector(testPolymorphic)];
+//    BOOL res = [vSubA1 respondsToSelector:@selector(testPolymorphic)];
 //
-//    [_viewA setValue:@"aaa" forKey:@"lswDescription"];
+    [_viewA setValue:@"aaa" forKey:@"lswDescription"];
 //    [_viewA testSuper];
     
     _viewA->_aString = @"";

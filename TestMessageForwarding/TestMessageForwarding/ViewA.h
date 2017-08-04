@@ -17,6 +17,8 @@
 - (void)testPolymorphic;
 - (void)testOverride;
 
+- (void)somtFunc;
+
 @property (strong,nonatomic) NSString *str;
 @property (strong,nonatomic) NSString *_strTest;
 @end

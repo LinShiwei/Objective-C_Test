@@ -39,6 +39,13 @@
     ClassMethodCallLog(@"printSomething");
 }
 
++ (void)printClassMethodB{
+    ClassMethodCallLog(@"pintClassMethodB");
+}
+- (void)printB{
+    ClassMethodCallLog(@"printB");
+}
+
 + (void)customInitialize{
     ClassMethodCallLog(@"customInitialize");
 }

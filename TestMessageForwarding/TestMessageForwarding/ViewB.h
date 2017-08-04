@@ -10,4 +10,7 @@
 #import "define.h"
 @interface ViewB : UIView
 - (void)printSomething;
+- (void)printB;
+
++ (void)printClassMethodB;
 @end

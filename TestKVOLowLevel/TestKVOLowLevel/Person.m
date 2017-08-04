@@ -9,5 +9,8 @@
 #import "Person.h"
 
 @implementation Person
-
+- (void)setName:(NSString *)name
+{
+    _name = [NSString stringWithFormat:@"%@aaaa",name];
+}
 @end

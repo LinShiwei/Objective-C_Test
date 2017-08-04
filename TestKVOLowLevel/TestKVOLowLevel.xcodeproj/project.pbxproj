@@ -13,6 +13,9 @@
 		FA2FDEEA1F330EB0009036F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA2FDEE81F330EB0009036F3 /* Main.storyboard */; };
 		FA2FDEEC1F330EB0009036F3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA2FDEEB1F330EB0009036F3 /* Assets.xcassets */; };
 		FA2FDEEF1F330EB0009036F3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA2FDEED1F330EB0009036F3 /* LaunchScreen.storyboard */; };
+		FA2FDEF81F330ED6009036F3 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2FDEF71F330ED6009036F3 /* Person.m */; };
+		FA2FDEFB1F330F1C009036F3 /* NotificationPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2FDEFA1F330F1C009036F3 /* NotificationPerson.m */; };
+		FA2FDEFE1F330F51009036F3 /* NSObject+KVO.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2FDEFD1F330F51009036F3 /* NSObject+KVO.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,12 @@
 		FA2FDEEB1F330EB0009036F3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA2FDEEE1F330EB0009036F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA2FDEF01F330EB0009036F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA2FDEF61F330ED6009036F3 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		FA2FDEF71F330ED6009036F3 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		FA2FDEF91F330F1C009036F3 /* NotificationPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotificationPerson.h; sourceTree = "<group>"; };
+		FA2FDEFA1F330F1C009036F3 /* NotificationPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotificationPerson.m; sourceTree = "<group>"; };
+		FA2FDEFC1F330F51009036F3 /* NSObject+KVO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+KVO.h"; sourceTree = "<group>"; };
+		FA2FDEFD1F330F51009036F3 /* NSObject+KVO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+KVO.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +76,12 @@
 				FA2FDEED1F330EB0009036F3 /* LaunchScreen.storyboard */,
 				FA2FDEF01F330EB0009036F3 /* Info.plist */,
 				FA2FDEDF1F330EB0009036F3 /* Supporting Files */,
+				FA2FDEF61F330ED6009036F3 /* Person.h */,
+				FA2FDEF71F330ED6009036F3 /* Person.m */,
+				FA2FDEF91F330F1C009036F3 /* NotificationPerson.h */,
+				FA2FDEFA1F330F1C009036F3 /* NotificationPerson.m */,
+				FA2FDEFC1F330F51009036F3 /* NSObject+KVO.h */,
+				FA2FDEFD1F330F51009036F3 /* NSObject+KVO.m */,
 			);
 			path = TestKVOLowLevel;
 			sourceTree = "<group>";
@@ -153,6 +168,9 @@
 			files = (
 				FA2FDEE71F330EB0009036F3 /* ViewController.m in Sources */,
 				FA2FDEE41F330EB0009036F3 /* AppDelegate.m in Sources */,
+				FA2FDEFE1F330F51009036F3 /* NSObject+KVO.m in Sources */,
+				FA2FDEFB1F330F1C009036F3 /* NotificationPerson.m in Sources */,
+				FA2FDEF81F330ED6009036F3 /* Person.m in Sources */,
 				FA2FDEE11F330EB0009036F3 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

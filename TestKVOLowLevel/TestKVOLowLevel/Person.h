@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Person : NSObject
+@interface Person : NSObject{
+@public
+    NSString *_name;
+}
+/**  */
+@property (nonatomic, strong) NSString *name;
 
 @end

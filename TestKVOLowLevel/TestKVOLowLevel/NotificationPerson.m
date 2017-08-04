@@ -7,7 +7,21 @@
 //
 
 #import "NotificationPerson.h"
+#import <objc/message.h>
+extern NSString *const observerKey ;
 
 @implementation NotificationPerson
+- (void)setName:(NSString *)name
+{
+    [super setName:name];
+    
+    // 通知观察者调用observeValueForKeyPath
+    // 需要把观察者保存到当前对象
+    // 获取观察者
+    id obsetver = objc_getAssociatedObject(self, observerKey);
+    
+    [obsetver observeValueForKeyPath:@"name" ofObject:self change:nil context:nil];
+    
+}
 
 @end
