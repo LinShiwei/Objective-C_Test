@@ -16,12 +16,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    CFRunLoopObserverContext context = {
+//        0,
+//        (__bridge void *)(self),
+//        NULL,
+//        NULL,
+//        NULL
+//    };
+//    CFRunLoopObserverRef observerRef = CFRunLoopObserverCreate(kCFAllocatorDefault, kCFRunLoopAllActivities, YES, 0, &runloopCallback, &context);
+//    CFRunLoopAddObserver(CFRunLoopGetCurrent(), observerRef, kCFRunLoopCommonModes);
+//    
     
-//    // 场景 1
-//    
-//    NSString *string = [NSString stringWithFormat:@"1234567890"];
-//    
-//    self.string_weak = string;
+    // 场景 1
+    
+    NSString *string = [NSString stringWithFormat:@"1234567890"];
+    
+    self.string_weak = string;
     
     //场景 2
     
@@ -50,7 +60,7 @@
     
     //        }
     
-    NSLog(@"string: %@",self.string_weak);
+    NSLog(@"%.4f  string: %@", CFAbsoluteTimeGetCurrent(),self.string_weak);
     
     
 }
@@ -59,7 +69,7 @@
     
     [super viewWillAppear:animated];
     
-    NSLog(@"string: %@", self.string_weak);
+    NSLog(@"%.4f  string: %@", CFAbsoluteTimeGetCurrent(),self.string_weak);
     
 } 
 
@@ -67,9 +77,39 @@
     
     [super viewDidAppear:animated]; 
     
-    NSLog(@"string: %@", self.string_weak);
+    NSLog(@"%.4f  string: %@", CFAbsoluteTimeGetCurrent(),self.string_weak);
     
 }
 
 
+
+
+//void runloopCallback(CFRunLoopObserverRef observer, CFRunLoopActivity activity, void *info)
+//{
+//    NSString* activityStr = @"unkown";
+//    if (((activity >> 0)&1) == 1) {
+//        activityStr = @"kCFRunLoopEntry";
+//    }
+//    else if (((activity >> 1)&1) == 1){
+//        activityStr = @"kCFRunLoopBeforeTimers";
+//    }
+//    else if (((activity >> 2)&1) == 1){
+//        activityStr = @"kCFRunLoopBeforeSources";
+//    }
+//    else if (((activity >> 5)&1) == 1){
+//        activityStr = @"kCFRunLoopBeforeWaiting";
+//    }
+//    else if (((activity >> 6)&1) == 1){
+//        activityStr = @"kCFRunLoopAfterWaiting";
+//    }
+//    else if (((activity >> 7)&1) == 1){
+//        activityStr = @"kCFRunLoopExit";
+//    }
+//    else
+//    {
+//        activityStr = @"kCFRunLoopAllActivities";
+//    }
+//    
+//    printf("[%.4f] activity:%s\n",CFAbsoluteTimeGetCurrent(),activityStr.UTF8String);
+//}
 @end
