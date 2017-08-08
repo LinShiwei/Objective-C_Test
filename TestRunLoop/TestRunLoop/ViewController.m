@@ -26,7 +26,10 @@
 //    CFRunLoopObserverRef observerRef = CFRunLoopObserverCreate(kCFAllocatorDefault, kCFRunLoopAllActivities, YES, 0, &runloopCallback, &context);
 //    CFRunLoopAddObserver(CFRunLoopGetCurrent(), observerRef, kCFRunLoopCommonModes);
 //    
-    
+//    
+//    CFRunLoopRef runloopRef = CFRunLoopGetCurrent();
+//    struct __CFRunLoop* runloopStructPointer = runloopRef;
+    //current mode = UIInitializationRunLoopMode,
     // 场景 1
     
     NSString *string = [NSString stringWithFormat:@"1234567890"];
@@ -67,6 +70,8 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     
+    //current mode = UIInitializationRunLoopMode,
+    
     [super viewWillAppear:animated];
     
     NSLog(@"%.4f  string: %@", CFAbsoluteTimeGetCurrent(),self.string_weak);
@@ -74,6 +79,11 @@
 } 
 
 - (void)viewDidAppear:(BOOL)animated { 
+    
+//    current mode = kCFRunLoopDefaultMode,
+
+    CFRunLoopRef runloopRef = CFRunLoopGetCurrent();
+    struct __CFRunLoop* runloopStructPointer = runloopRef;
     
     [super viewDidAppear:animated]; 
     

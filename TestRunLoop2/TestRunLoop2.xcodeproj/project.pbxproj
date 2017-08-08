@@ -13,6 +13,7 @@
 		FA8BF2821F370C7E000BB960 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA8BF2801F370C7E000BB960 /* Main.storyboard */; };
 		FA8BF2841F370C7E000BB960 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA8BF2831F370C7E000BB960 /* Assets.xcassets */; };
 		FA8BF2871F370C7E000BB960 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA8BF2851F370C7E000BB960 /* LaunchScreen.storyboard */; };
+		FA8BF2901F3730DB000BB960 /* CustomLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = FA8BF28F1F3730DB000BB960 /* CustomLabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,8 @@
 		FA8BF2831F370C7E000BB960 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA8BF2861F370C7E000BB960 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA8BF2881F370C7E000BB960 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA8BF28E1F3730DB000BB960 /* CustomLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomLabel.h; sourceTree = "<group>"; };
+		FA8BF28F1F3730DB000BB960 /* CustomLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomLabel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,8 @@
 				FA8BF2851F370C7E000BB960 /* LaunchScreen.storyboard */,
 				FA8BF2881F370C7E000BB960 /* Info.plist */,
 				FA8BF2771F370C7E000BB960 /* Supporting Files */,
+				FA8BF28E1F3730DB000BB960 /* CustomLabel.h */,
+				FA8BF28F1F3730DB000BB960 /* CustomLabel.m */,
 			);
 			path = TestRunLoop2;
 			sourceTree = "<group>";
@@ -110,7 +115,7 @@
 				TargetAttributes = {
 					FA8BF2731F370C7E000BB960 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 4F6NMKB449;
+						DevelopmentTeam = 544PNK2P78;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -154,6 +159,7 @@
 				FA8BF27F1F370C7E000BB960 /* ViewController.m in Sources */,
 				FA8BF27C1F370C7E000BB960 /* AppDelegate.m in Sources */,
 				FA8BF2791F370C7E000BB960 /* main.m in Sources */,
+				FA8BF2901F3730DB000BB960 /* CustomLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,7 +279,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 4F6NMKB449;
+				DEVELOPMENT_TEAM = 544PNK2P78;
 				INFOPLIST_FILE = TestRunLoop2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.linshiwei.TestRunLoop2;
@@ -285,7 +291,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 4F6NMKB449;
+				DEVELOPMENT_TEAM = 544PNK2P78;
 				INFOPLIST_FILE = TestRunLoop2/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.linshiwei.TestRunLoop2;

@@ -43,11 +43,12 @@ void runloopCallback(CFRunLoopObserverRef observer, CFRunLoopActivity activity, 
 int main(int argc, char * argv[]) {
     NSLog(@"%@",[NSThread currentThread]);
         @autoreleasepool {
-            
+            //current mode = (none),
+
             CFRunLoopObserverRef observerRef = CFRunLoopObserverCreate(kCFAllocatorDefault, kCFRunLoopAllActivities, YES, 0, &runloopCallback, NULL);
             CFRunLoopAddObserver(CFRunLoopGetCurrent(), observerRef, kCFRunLoopCommonModes);
             
-            
+           
             return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
         }
     

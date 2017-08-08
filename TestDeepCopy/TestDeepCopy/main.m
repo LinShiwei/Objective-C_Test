@@ -28,6 +28,28 @@
 
 @end
 
+@interface EleCopy:NSObject<NSCopying>
+@property (strong,nonatomic) NSDate *date;
+@end
+
+@implementation EleCopy
+
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _date = [NSDate date];
+    }
+    return self;
+}
+
+- (id)copyWithZone:(NSZone *)zone{
+    EleCopy *copy = [[[self class] allocWithZone:zone] init];
+    copy.date = self.date;
+    return copy;
+}
+@end
+
 int main(int argc, char * argv[]) {
     @autoreleasepool {
         //从数组和String类的分析，得出以下结论：
@@ -45,6 +67,16 @@ int main(int argc, char * argv[]) {
         NSMutableArray *mutableArrayMC = [array mutableCopy];
         NSArray *arrayC = [array copy];
         NSArray *arrayMC = [array mutableCopy];
+        
+        //数组元素的类实现NSCopying协议，后可以initWithArray:copyItems:true,实现对元素的复制
+        NSArray *array2 = [NSArray arrayWithObjects:[[EleCopy alloc] init], nil];
+        NSArray *arrayCopyWithItem = [[NSArray alloc] initWithArray:array2 copyItems:true];
+        
+        //使用NSKeyedUnarchiver可以实现完全的深复制，但是要确保归档的对象及其属性遵循NSCoding协议
+        NSArray* trueDeepCopyArray = [NSKeyedUnarchiver unarchiveObjectWithData:
+                                      [NSKeyedArchiver archivedDataWithRootObject:array]];
+
+        
         id arrayMCCopy = [arrayMC copy];
         
         
@@ -99,5 +131,11 @@ int main(int argc, char * argv[]) {
         TLog(mstr);
         TLog(mstrCopy);
         TLog(mstrMuCopy);
+        
+        
+        
+        NSArray<NSString *> *arr3 = [NSArray arrayWithObjects:@"1",@"2", nil];
+        
+        
     }
 }
