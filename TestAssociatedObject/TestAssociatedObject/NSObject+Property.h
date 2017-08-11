@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface NSObject (Property)
+@property NSString *str;
 - (NSString *)name;
 - (void)setName:(NSString *)name;
 

@@ -51,18 +51,26 @@
 }
 
 + (BOOL)resolveClassMethod:(SEL)sel{
+    ClassMethodCallLog(@"+ resolveClassMethod:");
+
     return [super resolveClassMethod:sel];
 }
 
 + (BOOL)resolveInstanceMethod:(SEL)sel{
+    ClassMethodCallLog(@"+ resolveInstanceMethod:");
+
     if ([NSStringFromSelector(sel) isEqualToString:@"printSomething"]) {
+        ClassMethodCallLog(@"isEqualToString:printSomething");
         return true;
     }
     return [super resolveInstanceMethod:sel];
 }
 
 - (id)forwardingTargetForSelector:(SEL)aSelector{
+    ClassMethodCallLog(@"- forwardingTargetForSelectro:");
+
     if ([NSStringFromSelector(aSelector) isEqualToString:@"printClassMethodB"]) {
+        ClassMethodCallLog(@"isEqualToString:printClassMethodB");
         return [_target class];
     }
     
@@ -70,6 +78,8 @@
 }
 
 + (id)forwardingTargetForSelector:(SEL)aSelector{
+    ClassMethodCallLog(@"+ forwardingTargetForSelectro:");
+
 //    if ([NSStringFromSelector(aSelector) isEqualToString:@"printClassMethodB"]) {
 //        return NSClassFromString(@"ViewB");
 //    }
@@ -78,10 +88,14 @@
 }
 
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector{
+    ClassMethodCallLog(@"- methodSignatureForSelector:");
+
     return [_target methodSignatureForSelector:aSelector];
 }
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation{
+    ClassMethodCallLog(@"- forwardInvocation:");
+
     [anInvocation invokeWithTarget:_target];
 //    self->_str = @"a";
 //    _str = @"C";
@@ -90,10 +104,14 @@
 }
 
 + (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector{
+    ClassMethodCallLog(@"+ methodSignatureForSelector:");
+
     return [NSClassFromString(@"ViewB") methodSignatureForSelector:aSelector];
 }
 
 + (void)forwardInvocation:(NSInvocation *)anInvocation{
+    ClassMethodCallLog(@"+ forwardInvocation:");
+
     [anInvocation invokeWithTarget:NSClassFromString(@"ViewB")];
 }
 

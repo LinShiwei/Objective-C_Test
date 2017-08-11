@@ -41,6 +41,8 @@
     [vSubA printB];
     [vSubA printClassMethodB];
 
+    [[_viewB class] printClassMethodB];
+    
     id vClassA = [_viewA class];
     [vClassA printClassMethodB];
 

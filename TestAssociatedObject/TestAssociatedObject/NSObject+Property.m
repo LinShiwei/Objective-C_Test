@@ -10,6 +10,8 @@
 #import <objc/runtime.h>
 
 static const char *key = "name";
+static const char *strkey = "str";
+
 
 @implementation NSObject (Property)
 - (NSString *)name
@@ -25,6 +27,15 @@ static const char *key = "name";
     // 第三个参数：关联的value
     // 第四个参数:关联的策略
     objc_setAssociatedObject(self, key, name, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (void)setStr:(NSString *)str{
+    objc_setAssociatedObject(self, strkey, str, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+
+}
+
+- (NSString *)str{
+    return objc_getAssociatedObject(self, strkey);
 }
 
 @end

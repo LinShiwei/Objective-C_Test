@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "NSObject+Property.h"
 @interface ViewController : UIViewController
 
 

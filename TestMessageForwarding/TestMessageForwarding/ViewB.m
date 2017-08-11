@@ -36,11 +36,11 @@
 }
 
 - (void)printSomething{
-    ClassMethodCallLog(@"printSomething");
+    ClassMethodCallLog(@"- printSomething");
 }
 
 + (void)printClassMethodB{
-    ClassMethodCallLog(@"pintClassMethodB");
+    ClassMethodCallLog(@"+ pintClassMethodB");
 }
 - (void)printB{
     ClassMethodCallLog(@"printB");
@@ -52,5 +52,28 @@
 
 + (void)customLoad{
     ClassMethodCallLog(@"customLoad");
+}
+
++ (BOOL)resolveClassMethod:(SEL)sel{
+    ClassMethodCallLog(@"resolveClassMethod:sel");
+    return [super resolveClassMethod:sel];
+}
+
++ (BOOL)resolveInstanceMethod:(SEL)sel{
+    ClassMethodCallLog(@"resolveInstanceMethod:sel");
+
+    return [super resolveInstanceMethod:sel];
+}
+
+- (id)forwardingTargetForSelector:(SEL)aSelector{
+    ClassMethodCallLog(@"- forwardingTargetForSelector:");
+
+    return [super forwardingTargetForSelector:aSelector];
+}
+
++ (id)forwardingTargetForSelector:(SEL)aSelector{
+    ClassMethodCallLog(@"+ forwardingTargetForSelector:");
+
+    return [super forwardingTargetForSelector:aSelector];
 }
 @end

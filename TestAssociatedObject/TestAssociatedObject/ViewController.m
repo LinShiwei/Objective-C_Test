@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "NSObject+Property.h"
 
 @interface ViewController ()
 
@@ -24,6 +25,9 @@
     NSObject *objc = [[NSObject alloc] init];
     objc.name = @"乔布斯";
     NSLog(@"%@",objc.name);
+    
+    objc.str = @"lsw";
+    NSLog(@"%@",objc.str);
 }
 
 
