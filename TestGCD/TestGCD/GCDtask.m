@@ -11,10 +11,10 @@
 @implementation GCDtask
 - (void)runTask{
 //    [self groupTask];
-//    [self barrierTask];
+    [self barrierTask];
 //    [self sourceTask];
 //    [self suspendTask];
-    [self setTargetQueueTask];
+//    [self setTargetQueueTask];
 //    [self task1];
 //    [self task2];
 }
@@ -26,7 +26,7 @@
     dispatch_queue_t queue3 = dispatch_queue_create("group3", DISPATCH_QUEUE_SERIAL);
 
     dispatch_group_async(group, queue, ^{
-        NSLog(@"1");
+        NSLog(@"1--%@",[NSThread currentThread]);
         [NSThread sleepForTimeInterval:3];
 
     });
@@ -41,46 +41,46 @@
 
     dispatch_group_async(group, queue2, ^{
         [NSThread sleepForTimeInterval:2];
-        NSLog(@"2");
+        NSLog(@"2--%@",[NSThread currentThread]);
         [NSThread sleepForTimeInterval:2];
     });
     
     dispatch_group_async(group, queue2, ^{
-        NSLog(@"3");
+        NSLog(@"3--%@",[NSThread currentThread]);
     });
     dispatch_group_async(group, queue2, ^{
-        NSLog(@"4");
+        NSLog(@"4--%@",[NSThread currentThread]);
     });
     dispatch_group_async(group, queue3, ^{
-        NSLog(@"5");
+        NSLog(@"5--%@",[NSThread currentThread]);
         [NSThread sleepForTimeInterval:1];
     });
     dispatch_group_async(group, queue3, ^{
-        NSLog(@"6");
+        NSLog(@"6--%@",[NSThread currentThread]);
     });
     dispatch_group_async(group, queue3, ^{
-        NSLog(@"7");
+        NSLog(@"7--%@",[NSThread currentThread]);
         [NSThread sleepForTimeInterval:3];
     });
     dispatch_group_notify(group, queue, ^{
-        NSLog(@"finish2");
-        NSLog(@"finish2");
-        NSLog(@"finish2");
-        NSLog(@"finish2");
+        NSLog(@"finish2--%@",[NSThread currentThread]);
+        NSLog(@"finish2--%@",[NSThread currentThread]);
+        NSLog(@"finish2--%@",[NSThread currentThread]);
+        NSLog(@"finish2--%@",[NSThread currentThread]);
 
     });
     dispatch_group_notify(group, queue, ^{
-        NSLog(@"finish3");
+        NSLog(@"finish3--%@",[NSThread currentThread]);
     });
     dispatch_group_notify(group, queue3, ^{
-        NSLog(@"finish4");
-        NSLog(@"finish4");
-        NSLog(@"finish4");
-        NSLog(@"finish4");
+        NSLog(@"finish4--%@",[NSThread currentThread]);
+        NSLog(@"finish4--%@",[NSThread currentThread]);
+        NSLog(@"finish4--%@",[NSThread currentThread]);
+        NSLog(@"finish4--%@",[NSThread currentThread]);
         
     });
     dispatch_group_notify(group, queue3, ^{
-        NSLog(@"finish5");
+        NSLog(@"finish5--%@",[NSThread currentThread]);
     });
     dispatch_group_notify(group, dispatch_get_main_queue(), ^{
         NSLog(@"finsh6 in main,thread %@",[NSThread currentThread]);
@@ -181,7 +181,7 @@
     dispatch_queue_t queue = dispatch_queue_create("serial", DISPATCH_QUEUE_SERIAL);
     dispatch_set_target_queue(queue, dispatch_get_main_queue());
     dispatch_async(queue, ^{
-        NSLog(@"%@",[NSThread currentThread]);
+        NSLog(@"%@",[NSThread currentThread]);//main queue
     });
 
 }

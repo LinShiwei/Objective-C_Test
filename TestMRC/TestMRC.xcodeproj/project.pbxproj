@@ -13,6 +13,8 @@
 		FA095EFD1F317F9A00DEE466 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA095EFB1F317F9A00DEE466 /* Main.storyboard */; };
 		FA095EFF1F317F9A00DEE466 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA095EFE1F317F9A00DEE466 /* Assets.xcassets */; };
 		FA095F021F317F9A00DEE466 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA095F001F317F9A00DEE466 /* LaunchScreen.storyboard */; };
+		FA2785BB1F43170000DE8492 /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2785BA1F43170000DE8492 /* Person.m */; settings = {COMPILER_FLAGS = " -fobjc-arc"; }; };
+		FA2785BE1F431F7700DE8492 /* MRCPerson.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2785BD1F431F7700DE8492 /* MRCPerson.m */; };
 		FADBCEB91F31B47B00B12021 /* TestDrawRectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = FADBCEB81F31B47B00B12021 /* TestDrawRectButton.m */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +29,10 @@
 		FA095EFE1F317F9A00DEE466 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA095F011F317F9A00DEE466 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA095F031F317F9A00DEE466 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA2785B91F43170000DE8492 /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		FA2785BA1F43170000DE8492 /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		FA2785BC1F431F7700DE8492 /* MRCPerson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MRCPerson.h; sourceTree = "<group>"; };
+		FA2785BD1F431F7700DE8492 /* MRCPerson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MRCPerson.m; sourceTree = "<group>"; };
 		FADBCEB71F31B47B00B12021 /* TestDrawRectButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestDrawRectButton.h; sourceTree = "<group>"; };
 		FADBCEB81F31B47B00B12021 /* TestDrawRectButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestDrawRectButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,6 +78,10 @@
 				FA095EF21F317F9A00DEE466 /* Supporting Files */,
 				FADBCEB71F31B47B00B12021 /* TestDrawRectButton.h */,
 				FADBCEB81F31B47B00B12021 /* TestDrawRectButton.m */,
+				FA2785B91F43170000DE8492 /* Person.h */,
+				FA2785BA1F43170000DE8492 /* Person.m */,
+				FA2785BC1F431F7700DE8492 /* MRCPerson.h */,
+				FA2785BD1F431F7700DE8492 /* MRCPerson.m */,
 			);
 			path = TestMRC;
 			sourceTree = "<group>";
@@ -158,6 +168,8 @@
 			files = (
 				FA095EFA1F317F9A00DEE466 /* ViewController.m in Sources */,
 				FA095EF71F317F9A00DEE466 /* AppDelegate.m in Sources */,
+				FA2785BB1F43170000DE8492 /* Person.m in Sources */,
+				FA2785BE1F431F7700DE8492 /* MRCPerson.m in Sources */,
 				FA095EF41F317F9A00DEE466 /* main.m in Sources */,
 				FADBCEB91F31B47B00B12021 /* TestDrawRectButton.m in Sources */,
 			);

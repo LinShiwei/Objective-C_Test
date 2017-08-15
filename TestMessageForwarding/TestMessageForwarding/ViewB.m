@@ -20,19 +20,22 @@
 //
 + (void)load{
     ClassMethodCallLog(@"load");
-    Method m1 = class_getClassMethod([self class], @selector(initialize));
-    Method m2 = class_getClassMethod([self class], @selector(customInitialize));
-
-    method_exchangeImplementations(m1, m2);
+//    Method m1 = class_getClassMethod([self class], @selector(initialize));
+//    Method m2 = class_getClassMethod([self class], @selector(customInitialize));
+//
+//    method_exchangeImplementations(m1, m2);
 
 }
 
 + (void)initialize{
     ClassMethodCallLog(@"vb initialize");
-    Method m1 = class_getClassMethod([self class], @selector(load));
-    Method m2 = class_getClassMethod([self class], @selector(customLoad));
-    
-    method_exchangeImplementations(m1, m2);
+//    Method m1 = class_getClassMethod([self class], @selector(load));
+//    Method m2 = class_getClassMethod([self class], @selector(customLoad));
+//    
+////    Method m1 = class_getClassMethod([self class], @selector(printClassMethodB));
+////    Method m2 = class_getClassMethod([self class], @selector(printClassMethodBMock));
+////    
+//    method_exchangeImplementations(m1, m2);
 }
 
 - (void)printSomething{
@@ -42,6 +45,11 @@
 + (void)printClassMethodB{
     ClassMethodCallLog(@"+ pintClassMethodB");
 }
+
++ (void)printClassMethodBMock{
+    ClassMethodCallLog(@"+ printClassMethodBMock");
+}
+
 - (void)printB{
     ClassMethodCallLog(@"printB");
 }
@@ -55,12 +63,12 @@
 }
 
 + (BOOL)resolveClassMethod:(SEL)sel{
-    ClassMethodCallLog(@"resolveClassMethod:sel");
+//    ClassMethodCallLog(@"resolveClassMethod:sel");
     return [super resolveClassMethod:sel];
 }
 
 + (BOOL)resolveInstanceMethod:(SEL)sel{
-    ClassMethodCallLog(@"resolveInstanceMethod:sel");
+//    ClassMethodCallLog(@"resolveInstanceMethod:sel");
 
     return [super resolveInstanceMethod:sel];
 }

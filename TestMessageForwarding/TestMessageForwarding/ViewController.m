@@ -35,10 +35,10 @@
     
     
     id vSubA = _viewSubA;
-    [vSubA printSomething];
-    [vSubA testPolymorphic];
-    
-    [vSubA printB];
+//    [vSubA printSomething];
+//    [vSubA testPolymorphic];
+//    
+//    [vSubA printB];
     [vSubA printClassMethodB];
 
     [[_viewB class] printClassMethodB];

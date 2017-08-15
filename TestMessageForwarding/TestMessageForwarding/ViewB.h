@@ -13,4 +13,5 @@
 - (void)printB;
 
 + (void)printClassMethodB;
++ (void)printClassMethodBMock;
 @end

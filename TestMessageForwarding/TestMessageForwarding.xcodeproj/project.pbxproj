@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		FA095EE21F3067F600DEE466 /* ViewSubA1.m in Sources */ = {isa = PBXBuildFile; fileRef = FA095EE11F3067F600DEE466 /* ViewSubA1.m */; };
 		FA095EE51F30B40F00DEE466 /* NotNSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = FA095EE41F30B40F00DEE466 /* NotNSObject.m */; };
+		FA2785711F42C16200DE8492 /* ViewC.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2785701F42C16200DE8492 /* ViewC.m */; };
 		FA4391191F29E5250054D500 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4391181F29E5250054D500 /* main.m */; };
 		FA43911C1F29E5250054D500 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA43911B1F29E5250054D500 /* AppDelegate.m */; };
 		FA43911F1F29E5250054D500 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA43911E1F29E5250054D500 /* ViewController.m */; };
@@ -26,6 +27,8 @@
 		FA095EE11F3067F600DEE466 /* ViewSubA1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewSubA1.m; sourceTree = "<group>"; };
 		FA095EE31F30B40F00DEE466 /* NotNSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NotNSObject.h; sourceTree = "<group>"; };
 		FA095EE41F30B40F00DEE466 /* NotNSObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NotNSObject.m; sourceTree = "<group>"; };
+		FA27856F1F42C16200DE8492 /* ViewC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewC.h; path = ../ViewC.h; sourceTree = "<group>"; };
+		FA2785701F42C16200DE8492 /* ViewC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewC.m; path = ../ViewC.m; sourceTree = "<group>"; };
 		FA4391141F29E5250054D500 /* TestMessageForwarding.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestMessageForwarding.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA4391181F29E5250054D500 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FA43911A1F29E5250054D500 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -94,6 +97,8 @@
 				FA4391321F29E5930054D500 /* ViewB.m */,
 				FA4391341F2A03970054D500 /* ViewSubA.h */,
 				FA4391351F2A03970054D500 /* ViewSubA.m */,
+				FA27856F1F42C16200DE8492 /* ViewC.h */,
+				FA2785701F42C16200DE8492 /* ViewC.m */,
 				FA4391371F2A0CC00054D500 /* define.h */,
 				FA095EE01F3067F600DEE466 /* ViewSubA1.h */,
 				FA095EE11F3067F600DEE466 /* ViewSubA1.m */,
@@ -187,6 +192,7 @@
 				FA095EE51F30B40F00DEE466 /* NotNSObject.m in Sources */,
 				FA43911C1F29E5250054D500 /* AppDelegate.m in Sources */,
 				FA095EE21F3067F600DEE466 /* ViewSubA1.m in Sources */,
+				FA2785711F42C16200DE8492 /* ViewC.m in Sources */,
 				FA4391331F29E5930054D500 /* ViewB.m in Sources */,
 				FA4391361F2A03970054D500 /* ViewSubA.m in Sources */,
 				FA4391301F29E5880054D500 /* ViewA.m in Sources */,

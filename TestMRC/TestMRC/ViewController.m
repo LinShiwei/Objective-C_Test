@@ -7,7 +7,8 @@
 //
 
 #import "ViewController.h"
-
+#import "Person.h"
+#import "MRCPerson.h"
 @interface ViewController ()
 
 @end
@@ -21,8 +22,20 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    NSDate *date = [NSDate dateWithTimeIntervalSinceNow:-10];
-//    [date release];
+    
+    Person *p1 = [Person newPerson];
+    Person *p2 = [Person somePerson];
+    NSLog(@"%@",p1.description);
+    NSLog(@"%@",p2.description);
+
+    [p1 release];
+    
+    MRCPerson *mp1 = [MRCPerson newPerson];
+    MRCPerson *mp2 = [MRCPerson somePerson];
+    NSLog(@"%@",mp1.description);
+    NSLog(@"%@",mp2.description);
+    
+    [mp1 release];
 }
 
 

@@ -51,13 +51,13 @@
 }
 
 + (BOOL)resolveClassMethod:(SEL)sel{
-    ClassMethodCallLog(@"+ resolveClassMethod:");
+//    ClassMethodCallLog(@"+ resolveClassMethod:");
 
     return [super resolveClassMethod:sel];
 }
 
 + (BOOL)resolveInstanceMethod:(SEL)sel{
-    ClassMethodCallLog(@"+ resolveInstanceMethod:");
+//    ClassMethodCallLog(@"+ resolveInstanceMethod:");
 
     if ([NSStringFromSelector(sel) isEqualToString:@"printSomething"]) {
         ClassMethodCallLog(@"isEqualToString:printSomething");

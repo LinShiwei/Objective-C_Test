@@ -7,7 +7,7 @@
 //
 
 #import "ViewSubA1.h"
-
+#import "define.h"
 @implementation ViewSubA1
 
 /*
@@ -18,7 +18,15 @@
 }
 */
 
++ (void)initialize{
+    
+    ClassMethodCallLog(@"initialize");
+}
 
++ (void)load{
+    ClassMethodCallLog(@"load");
+    
+}
 
 - (void)testPolymorphic{
     ClassMethodCallLog(@"testPolymorphic");
