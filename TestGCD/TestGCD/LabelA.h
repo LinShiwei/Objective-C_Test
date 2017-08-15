@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface LabelA : UILabel
-@property (nonatomic,copy) NSString *str;
+@property (nonatomic,strong) NSMutableArray *arr;
 @end

@@ -71,6 +71,9 @@ int main(int argc, char * argv[]) {
         //数组元素的类实现NSCopying协议，后可以initWithArray:copyItems:true,实现对元素的复制
         NSArray *array2 = [NSArray arrayWithObjects:[[EleCopy alloc] init], nil];
         NSArray *arrayCopyWithItem = [[NSArray alloc] initWithArray:array2 copyItems:true];
+        //arrayWithArray创建的数组地址与原来的不一样，但是里面的对象指向的是同一个对象。
+        NSArray *arrayWithArray = [NSArray arrayWithArray:array2];
+        
         
         //使用NSKeyedUnarchiver可以实现完全的深复制，但是要确保归档的对象及其属性遵循NSCoding协议
         NSArray* trueDeepCopyArray = [NSKeyedUnarchiver unarchiveObjectWithData:

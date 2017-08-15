@@ -12,7 +12,7 @@
 }
 @end
 @implementation LabelA
-@synthesize str = _str;
+@synthesize arr = _arr;
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
@@ -31,20 +31,20 @@
 }
 
 
-//- (NSString *)str{
-//    __block NSString *localStr;
-//    dispatch_sync(_queue, ^{
-//        localStr = _str;
-//    });
-//    return localStr;
-//}
-//
-//- (void)setStr:(NSString *)str{
-//    dispatch_async(_queue, ^{
-//        if (str != _str) {
-//            _str = str;
-//        }
-//    });
-//}
+- (NSMutableArray *)arr{
+    __block NSMutableArray *localArr;
+    dispatch_sync(_queue, ^{
+        localArr = _arr;
+    });
+    return localArr;
+}
+
+- (void)setArr:(NSMutableArray *)arr{
+    dispatch_async(_queue, ^{
+        if (arr != _arr) {
+            _arr = [arr mutableCopy];
+        }
+    });
+}
 
 @end
