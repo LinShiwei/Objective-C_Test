@@ -27,9 +27,9 @@
     j++;
     blk();//1025,1
     blkInHeap();//1025,1
-    NSString *str = [[NSString alloc] initWithFormat:@"hehe"]; // ARC
-    NSTimer * __strong timer;
-    __strong NSTimer * timer1;
+//    NSString *str = [[NSString alloc] initWithFormat:@"hehe"]; // ARC
+//    NSTimer * __strong timer;
+//    __strong NSTimer * timer1;
 }
 
 
