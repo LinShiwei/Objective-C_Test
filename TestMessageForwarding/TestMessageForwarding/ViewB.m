@@ -63,12 +63,12 @@
 }
 
 + (BOOL)resolveClassMethod:(SEL)sel{
-//    ClassMethodCallLog(@"resolveClassMethod:sel");
+    ClassMethodCallLog(@"resolveClassMethod:sel");
     return [super resolveClassMethod:sel];
 }
 
 + (BOOL)resolveInstanceMethod:(SEL)sel{
-//    ClassMethodCallLog(@"resolveInstanceMethod:sel");
+    ClassMethodCallLog(@"resolveInstanceMethod:sel");
 
     return [super resolveInstanceMethod:sel];
 }
@@ -83,5 +83,29 @@
     ClassMethodCallLog(@"+ forwardingTargetForSelector:");
 
     return [super forwardingTargetForSelector:aSelector];
+}
+
+- (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector{
+    ClassMethodCallLog(@"- methodSignatureForSelector:");
+
+    return [super methodSignatureForSelector:aSelector];
+}
+
+- (void)forwardInvocation:(NSInvocation *)anInvocation{
+    ClassMethodCallLog(@"- forwardInvocation:");
+
+    [super forwardInvocation:anInvocation];
+}
+
++ (NSMethodSignature *)methodSignatureForSelector:(SEL)aSelector{
+    ClassMethodCallLog(@"+ methodSignatureForSelector:");
+
+    return [super methodSignatureForSelector:aSelector];
+}
+
++ (void)forwardInvocation:(NSInvocation *)anInvocation{
+    ClassMethodCallLog(@"+ forwardInvocation:");
+
+    [super forwardInvocation:anInvocation];
 }
 @end

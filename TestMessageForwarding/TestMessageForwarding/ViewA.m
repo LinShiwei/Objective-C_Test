@@ -51,13 +51,13 @@
 }
 
 + (BOOL)resolveClassMethod:(SEL)sel{
-//    ClassMethodCallLog(@"+ resolveClassMethod:");
+    ClassMethodCallLog(@"+ resolveClassMethod:");
 
     return [super resolveClassMethod:sel];
 }
 
 + (BOOL)resolveInstanceMethod:(SEL)sel{
-//    ClassMethodCallLog(@"+ resolveInstanceMethod:");
+    ClassMethodCallLog(@"+ resolveInstanceMethod:");
 
     if ([NSStringFromSelector(sel) isEqualToString:@"printSomething"]) {
         ClassMethodCallLog(@"isEqualToString:printSomething");
@@ -70,7 +70,8 @@
     ClassMethodCallLog(@"- forwardingTargetForSelectro:");
 
     if ([NSStringFromSelector(aSelector) isEqualToString:@"printClassMethodB"]) {
-        ClassMethodCallLog(@"isEqualToString:printClassMethodB");
+        //||[NSStringFromSelector(aSelector) isEqualToString:@"printClassMethodC"]
+        ClassMethodCallLog(@"isEqualToString:printClassMethodB_C");
         return [_target class];
     }
     
@@ -142,4 +143,17 @@
 - (void)somtFunc{
     ClassMethodCallLog(@"somtFunc");
 }
+
+- (void)doesNotRecognizeSelector:(SEL)aSelector{
+    ClassMethodCallLog(@"- doesNotRecognizeSelector");
+
+    [super doesNotRecognizeSelector:aSelector];
+}
+
++ (void)doesNotRecognizeSelector:(SEL)aSelector{
+    ClassMethodCallLog(@"+ doesNotRecognizeSelector");
+    
+    [super doesNotRecognizeSelector:aSelector];
+}
+
 @end

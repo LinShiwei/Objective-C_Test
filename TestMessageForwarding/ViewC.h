@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewC : UIView
++ (void)printClassMethodC;
 
 @end

@@ -26,4 +26,13 @@
     ClassMethodCallLog(@"load");
     
 }
+
++ (void)printClassMethodC{
+    ClassMethodCallLog(@"+ pintClassMethodC");
+}
+
+- (void)printC{
+    ClassMethodCallLog(@"printC");
+}
+
 @end

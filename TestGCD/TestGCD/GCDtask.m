@@ -11,8 +11,11 @@
 @implementation GCDtask
 - (void)runTask{
 //    [self groupTask];
-    [self barrierTask];
+//    [self barrierTask];
 //    [self sourceTask];
+//    [self sourceTask2];
+//    [self timerTask];
+    [self suspendTask0];
 //    [self suspendTask];
 //    [self setTargetQueueTask];
 //    [self task1];
@@ -148,6 +151,189 @@
             dispatch_source_merge_data(source, 1);
         });
     });
+    //事件句柄根据已完成的工作单元来更新进度条。若主线程比较空闲并且这些工作单元进行的比较慢，那么事件句柄会在每个工作单元完成的时候被调用，实时更新。如果主线程忙于其他工作，或者工作单元完成速度很快，那么完成事件会被联结起来，导致进度条只在主线程变得可用时才被更新，并且一次将积累的改变更新至GUI。
+    //现在你可能会想，听起来倒是不错，但是要是我不想让事件被联结呢？有时候你可能想让每一次信号都会引起响应，什么后台的智能玩意儿统统不要。啊。。其实很简单的，别把自己绕进去了。如果你想让每一个信号都得到响应，那使用dispatch_async函数不就行了。实际上，使用的dispatch source而不使用dispatch_async的唯一原因就是利用联结的优势。
+}
+
+- (void)sourceTask2{
+    //创建source，以DISPATCH_SOURCE_TYPE_DATA_ADD的方式进行累加，而DISPATCH_SOURCE_TYPE_DATA_OR是对结果进行二进制或运算
+    dispatch_source_t source = dispatch_source_create(DISPATCH_SOURCE_TYPE_DATA_ADD, 0, 0, dispatch_get_main_queue());
+    
+    //事件触发后执行的句柄
+    dispatch_source_set_event_handler(source,^{
+        
+        NSLog(@"监听函数：%lu",dispatch_source_get_data(source));
+        
+    });
+    
+    //开启source
+    dispatch_resume(source);
+    
+    dispatch_queue_t myqueue =dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
+    dispatch_async(myqueue, ^ {
+        
+        for(int i = 1; i <= 4; i ++){
+            
+            NSLog(@"~~~~~~~~~~~~~~%d", i);
+            
+            //触发事件，向source发送事件，这里i不能为0，否则触发不了事件
+            dispatch_source_merge_data(source,i);
+            
+            //当Interval的事件越长，则每次的句柄都会触发
+            [NSThread sleepForTimeInterval:0.001];
+        }
+    });
+    
+}
+
+- (void)sourceTask3{
+    //1、指定DISPATCH_SOURCE_TYPE_DATA_ADD，做成Dispatch Source(分派源)。设定Main Dispatch Queue 为追加处理的Dispatch Queue
+    dispatch_source_t source = dispatch_source_create(DISPATCH_SOURCE_TYPE_DATA_ADD, 0, 0, dispatch_get_main_queue());
+    
+    __block NSUInteger totalComplete = 0;
+    
+    dispatch_source_set_event_handler(source, ^{
+        
+        //当处理事件被最终执行时，计算后的数据可以通过dispatch_source_get_data来获取。这个数据的值在每次响应事件执行后会被重置，所以totalComplete的值是最终累积的值。
+        NSUInteger value = dispatch_source_get_data(source);
+        
+        totalComplete += value;
+        
+        NSLog(@"进度：%@", @((float)totalComplete/100));
+        
+        NSLog(@":large_blue_circle:线程号：%@", [NSThread currentThread]);
+    });
+    
+    //分派源创建时默认处于暂停状态，在分派源分派处理程序之前必须先恢复。
+    dispatch_resume(source);
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
+    //2、恢复源后，就可以通过dispatch_source_merge_data向Dispatch Source(分派源)发送事件:
+    for (NSUInteger index = 0; index < 100; index++) {
+        
+        dispatch_async(queue, ^{
+            
+            dispatch_source_merge_data(source, 1);
+            
+            NSLog(@":recycle:线程号：%@~~~~~~~~~~~~i = %ld", [NSThread currentThread], index);
+            
+            usleep(20000);//0.02秒
+            
+        });
+    }
+    
+    //3、比较上面的for循环代码，将dispatch_async放在外面for循环的外面，打印结果不一样
+    //dispatch_async(queue, ^{
+    //
+    //    for (NSUInteger index = 0; index < 100; index++) {
+    //
+    //        dispatch_source_merge_data(source, 1);
+    //
+    //        NSLog(@":recycle:线程号：%@~~~~~~~~~~~~i = %ld", [NSThread currentThread], index);
+    //
+    //        usleep(20000);//0.02秒
+    //    }
+    //});
+    
+    
+    //2是将100个任务添加到queue里面，而3是在queue里面添加一个任务，而这一个任务做了100次循环
+    
+}
+
+- (void)timerTask{
+    //倒计时时间
+    __block int timeout = 3;
+    
+    //创建队列
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    
+    //创建timer
+    dispatch_source_t _timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue);
+    
+    //设置1s触发一次，0s的误差
+    dispatch_source_set_timer(_timer,dispatch_walltime(NULL, 0),1.0*NSEC_PER_SEC, 0); //每秒执行
+    
+    //触发的事件
+    dispatch_source_set_event_handler(_timer, ^{
+        
+        if(timeout<=0){ //倒计时结束，关闭
+            
+            //取消dispatch源
+            dispatch_source_cancel(_timer);
+            
+        }
+        else{
+            
+            timeout--;
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                //更新主界面的操作
+                
+                NSLog(@"~~~~~~~~~~~~~~~~%d", timeout);
+                
+            });
+        }
+    });
+    
+    //开始执行dispatch源
+    dispatch_resume(_timer);
+}
+
+
+- (void)suspendTask0{
+    //创建DISPATCH_QUEUE_SERIAL队列
+    dispatch_queue_t queue1 = dispatch_queue_create("com.iOSChengXuYuan.queue1", 0);
+    dispatch_queue_t queue2 = dispatch_queue_create("com.iOSChengXuYuan.queue2", 0);
+    
+    //创建group
+    dispatch_group_t group = dispatch_group_create();
+    
+    //异步执行任务
+    dispatch_async(queue1, ^{
+        NSLog(@"任务 1 ： queue 1...");
+        sleep(3);
+        NSLog(@":white_check_mark:完成任务 1");
+    });
+    
+    dispatch_async(queue2, ^{
+        NSLog(@"任务 1 ： queue 2...");
+        sleep(3);
+        NSLog(@":white_check_mark:完成任务 2");
+    });
+    
+    //将队列加入到group
+    dispatch_group_async(group, queue1, ^{
+        NSLog(@":no_entry_sign:正在暂停 1");
+        dispatch_suspend(queue1);
+    });
+    
+    dispatch_group_async(group, queue2, ^{
+        NSLog(@":no_entry_sign:正在暂停 2");
+        dispatch_suspend(queue2);
+    });
+    
+    //等待两个queue执行完毕后再执行
+    dispatch_group_wait(group, DISPATCH_TIME_FOREVER);
+    NSLog(@"＝＝＝＝＝＝＝等待两个queue完成, 再往下进行...");
+    
+    //异步执行任务
+    dispatch_async(queue1, ^{
+        NSLog(@"任务 2 ： queue 1");
+    });
+    dispatch_async(queue2, ^{
+        NSLog(@"任务 2 ： queue 2");
+    });
+    
+    //在这里将这两个队列重新恢复
+    sleep(5);
+    dispatch_resume(queue1);
+    dispatch_resume(queue2);
+    //dispatch_suspend 会暂停队列里的任务，正在执行的block会继续执行完，之后的block不会被执行，等到resume后才执行后续的block任务
+    
+    //当将dispatch_group_wait(group, DISPATCH_TIME_FOREVER);注释后，会产生崩溃，因为所有的任务都是异步执行的，在执行恢复queue1和queue2队列的时候，可能这个时候还没有执行queue1和queue2的挂起队列
 }
 
 - (void)suspendTask{

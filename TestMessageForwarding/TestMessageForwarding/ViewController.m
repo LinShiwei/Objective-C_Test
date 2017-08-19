@@ -8,6 +8,12 @@
 
 #import "ViewController.h"
 #import <objc/runtime.h>
+#import "ViewB.h"
+#import "ViewSubA.h"
+#import "ViewSubA1.h"
+//#import "ViewA+View_TestSuper.h"
+#import "ViewA.h"
+#import "ViewC.h"
 @interface ViewController ()
 @property (strong,nonatomic) ViewA *viewA;
 @property (strong,nonatomic) ViewB *viewB;
@@ -39,10 +45,14 @@
 //    [vSubA testPolymorphic];
 //    
 //    [vSubA printB];
-    [vSubA printClassMethodB];
-
-    [[_viewB class] printClassMethodB];
+    id vAClass = [ViewA class];
+    [vAClass printClassMethodB];
     
+    [vSubA printClassMethodB];
+    [vSubA printClassMethodC];
+    
+    [[_viewB class] printClassMethodB];
+
     id vClassA = [_viewA class];
     [vClassA printClassMethodB];
 

@@ -19,9 +19,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 //    [self task1];
-//    [self task2];
+    [self task2];
 //    [self task3];
-    [self task4];
+//    [self task4];
 //    [self task5];
 
 
@@ -31,6 +31,19 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that3  can be recreated.
+}
+
+- (void)task0{
+    __weak id weakSelf = self;
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    [queue addOperationWithBlock:^{
+        NSLog(@"task0 heavy work in thread %@",[NSThread currentThread]);
+        sleep(3);
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            __typeof__(self) strongSelf = weakSelf;
+            NSLog(@"task0 ui in thread %@",[NSThread currentThread]);
+        }];
+    }];
 }
 
 - (void)task1{
@@ -49,7 +62,9 @@
     NSInvocationOperation *opera = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(customSelector) object:nil];
 //    NSOperationQueue *que = [[NSOperationQueue alloc] init];
 //    [que addOperation:opera];
-    [opera start];//如果不加入queue，则会在当前线程运行。
+    [opera start];//如果不加入queue，则会在当前线程运行,并且是同步运行，会阻塞线程直至完成。
+    NSLog(@"task2 is async %d",[opera isAsynchronous]);
+    NSLog(@"task2 %f",CFAbsoluteTimeGetCurrent());
 }
 
 - (void)task3{
@@ -92,10 +107,12 @@
     }
 }
 - (void)customSelector{
+    NSLog(@"customSelector %f",CFAbsoluteTimeGetCurrent());
     ClassMethodCallLog(@"customSelector");
     NSLog(@"begin %@",[NSThread currentThread]);
     [NSThread sleepForTimeInterval:1];
     NSLog(@"%@",[NSThread currentThread]);
+    NSLog(@"customSelector %f",CFAbsoluteTimeGetCurrent());
 
 }
 

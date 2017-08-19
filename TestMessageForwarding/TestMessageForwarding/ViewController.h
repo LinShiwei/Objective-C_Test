@@ -7,11 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ViewB.h"
-#import "ViewSubA.h"
-#import "ViewSubA1.h"
-//#import "ViewA+View_TestSuper.h"
-#import "ViewA.h"
+
 
 @interface ViewController : UIViewController
 
