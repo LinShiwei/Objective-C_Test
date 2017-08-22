@@ -49,7 +49,7 @@
     [vAClass printClassMethodB];
     
     [vSubA printClassMethodB];
-    [vSubA printClassMethodC];
+//    [vSubA printClassMethodC];
     
     [[_viewB class] printClassMethodB];
 
@@ -61,7 +61,7 @@
     [vSubA1 testPolymorphic];
 //    BOOL res = [vSubA1 respondsToSelector:@selector(testPolymorphic)];
 //
-    [_viewA setValue:@"aaa" forKey:@"lswDescription"];
+//    [_viewA setValue:@"aaa" forKey:@"lswDescription"];
 //    [_viewA testSuper];
     
     _viewA->_aString = @"";

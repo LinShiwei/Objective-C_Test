@@ -19,6 +19,7 @@
 		FA4391301F29E5880054D500 /* ViewA.m in Sources */ = {isa = PBXBuildFile; fileRef = FA43912F1F29E5880054D500 /* ViewA.m */; };
 		FA4391331F29E5930054D500 /* ViewB.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4391321F29E5930054D500 /* ViewB.m */; };
 		FA4391361F2A03970054D500 /* ViewSubA.m in Sources */ = {isa = PBXBuildFile; fileRef = FA4391351F2A03970054D500 /* ViewSubA.m */; };
+		FA65646E1F4C29670017C779 /* UnuseView.m in Sources */ = {isa = PBXBuildFile; fileRef = FA65646D1F4C29670017C779 /* UnuseView.m */; };
 		FADBCEBC1F31C54100B12021 /* ViewA+View_TestSuper.m in Sources */ = {isa = PBXBuildFile; fileRef = FADBCEBB1F31C54100B12021 /* ViewA+View_TestSuper.m */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +47,8 @@
 		FA4391341F2A03970054D500 /* ViewSubA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewSubA.h; sourceTree = "<group>"; };
 		FA4391351F2A03970054D500 /* ViewSubA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewSubA.m; sourceTree = "<group>"; };
 		FA4391371F2A0CC00054D500 /* define.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = define.h; sourceTree = "<group>"; };
+		FA65646C1F4C29670017C779 /* UnuseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnuseView.h; sourceTree = "<group>"; };
+		FA65646D1F4C29670017C779 /* UnuseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UnuseView.m; sourceTree = "<group>"; };
 		FADBCEBA1F31C54100B12021 /* ViewA+View_TestSuper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewA+View_TestSuper.h"; sourceTree = "<group>"; };
 		FADBCEBB1F31C54100B12021 /* ViewA+View_TestSuper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewA+View_TestSuper.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -104,6 +107,8 @@
 				FA095EE11F3067F600DEE466 /* ViewSubA1.m */,
 				FA095EE31F30B40F00DEE466 /* NotNSObject.h */,
 				FA095EE41F30B40F00DEE466 /* NotNSObject.m */,
+				FA65646C1F4C29670017C779 /* UnuseView.h */,
+				FA65646D1F4C29670017C779 /* UnuseView.m */,
 			);
 			path = TestMessageForwarding;
 			sourceTree = "<group>";
@@ -197,6 +202,7 @@
 				FA4391361F2A03970054D500 /* ViewSubA.m in Sources */,
 				FA4391301F29E5880054D500 /* ViewA.m in Sources */,
 				FADBCEBC1F31C54100B12021 /* ViewA+View_TestSuper.m in Sources */,
+				FA65646E1F4C29670017C779 /* UnuseView.m in Sources */,
 				FA4391191F29E5250054D500 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
