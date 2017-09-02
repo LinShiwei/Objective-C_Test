@@ -14,6 +14,7 @@
 //#import "ViewA+View_TestSuper.h"
 #import "ViewA.h"
 #import "ViewC.h"
+#import "UnuseView2.h"
 @interface ViewController ()
 @property (strong,nonatomic) ViewA *viewA;
 @property (strong,nonatomic) ViewB *viewB;
@@ -25,7 +26,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
+    UIView *unv2 = [[UnuseView2 alloc] init];
+    
     _viewB = [[ViewB alloc] init];
 
     _viewA = [[ViewA alloc] initWithForwardingTarget:_viewB];

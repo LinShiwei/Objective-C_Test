@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		56C7ACF51F5A7EEC00E34886 /* ViewA.m in Sources */ = {isa = PBXBuildFile; fileRef = 56C7ACF41F5A7EEC00E34886 /* ViewA.m */; };
 		FA2FDF0D1F331964009036F3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2FDF0C1F331964009036F3 /* main.m */; };
 		FA2FDF101F331964009036F3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2FDF0F1F331964009036F3 /* AppDelegate.m */; };
 		FA2FDF131F331964009036F3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2FDF121F331964009036F3 /* ViewController.m */; };
@@ -17,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		56C7ACF31F5A7EEC00E34886 /* ViewA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewA.h; sourceTree = "<group>"; };
+		56C7ACF41F5A7EEC00E34886 /* ViewA.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewA.m; sourceTree = "<group>"; };
 		FA2FDF081F331964009036F3 /* TestExternStatic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestExternStatic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA2FDF0C1F331964009036F3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FA2FDF0E1F331964009036F3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -72,6 +75,8 @@
 				FA2FDF0B1F331964009036F3 /* Supporting Files */,
 				FA2FDF221F331A73009036F3 /* ViewControllerA.h */,
 				FA2FDF231F331A73009036F3 /* ViewControllerA.m */,
+				56C7ACF31F5A7EEC00E34886 /* ViewA.h */,
+				56C7ACF41F5A7EEC00E34886 /* ViewA.m */,
 			);
 			path = TestExternStatic;
 			sourceTree = "<group>";
@@ -158,6 +163,7 @@
 			files = (
 				FA2FDF241F331A73009036F3 /* ViewControllerA.m in Sources */,
 				FA2FDF131F331964009036F3 /* ViewController.m in Sources */,
+				56C7ACF51F5A7EEC00E34886 /* ViewA.m in Sources */,
 				FA2FDF101F331964009036F3 /* AppDelegate.m in Sources */,
 				FA2FDF0D1F331964009036F3 /* main.m in Sources */,
 			);
@@ -318,6 +324,7 @@
 				FA2FDF211F331964009036F3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

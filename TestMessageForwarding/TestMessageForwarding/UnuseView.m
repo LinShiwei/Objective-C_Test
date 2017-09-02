@@ -17,7 +17,14 @@
     // Drawing code
 }
 */
+/*
 + (void)load{
     ClassMethodCallLog(@"load");
-}
+}//只实现load的话，不管这个类是否用到，运行的时候都会调用load
+//*/
++ (void)initialize{
+    ClassMethodCallLog(@"initialize");
+
+}//只实现initialize，不实现load的话，那么这个initialize会等到这个类接收到第一条消息才会执行。
+
 @end

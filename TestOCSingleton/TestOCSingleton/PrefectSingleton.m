@@ -14,7 +14,7 @@ static PrefectSingleton *sharedPrefectSingleton = nil;
 + (instancetype)sharedPrefectSingleton{
     @synchronized (self) {
         if (sharedPrefectSingleton == nil) {
-            sharedPrefectSingleton = [[super allocWithZone:nil] init];// 避免死循环
+            sharedPrefectSingleton = [[super allocWithZone:nil] init];// 避免死循环，不能用self
             // 如果 在单例类里面重写了 allocWithZone 方法 ，在创建单例对象时 使用 [[DataHandle alloc] init] 创建，会死循环。
         }
     }

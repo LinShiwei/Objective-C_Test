@@ -10,16 +10,37 @@
 
 @implementation GCDtask
 - (void)runTask{
+//    [self syncAndAsync];
 //    [self groupTask];
 //    [self barrierTask];
 //    [self sourceTask];
 //    [self sourceTask2];
 //    [self timerTask];
-    [self suspendTask0];
+//    [self suspendTask0];
 //    [self suspendTask];
-//    [self setTargetQueueTask];
+    [self setTargetQueueTask];
+//    [self setTargetTask2];
+
 //    [self task1];
 //    [self task2];
+}
+
+- (void)syncAndAsync{
+    dispatch_queue_t que = dispatch_queue_create("cocurr", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_sync(que, ^{
+        NSLog(@"sync : %@",[NSThread currentThread]);
+        [NSThread sleepForTimeInterval:3];
+    });
+    NSLog(@"%@ out of que,",[NSThread currentThread]);
+
+    dispatch_queue_t que1 = dispatch_queue_create("cocurr1", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_async(que1, ^{
+        NSLog(@"async : %@",[NSThread currentThread]);
+        [NSThread sleepForTimeInterval:3];
+    });
+    NSLog(@"%@ out2 of que,",[NSThread currentThread]);
+
+    
 }
 
 - (void)groupTask{
@@ -280,6 +301,10 @@
     
     //开始执行dispatch源
     dispatch_resume(_timer);
+    
+    
+    //Dispatch queue 没有取消的方法，加入到queue中的block就没有办法取消，除非编程人员在处理中加入取消这个概念
+    //Dispatch source 可以取消，并且能够配置取消时的回调
 }
 
 
@@ -366,10 +391,40 @@
 - (void)setTargetQueueTask{
     dispatch_queue_t queue = dispatch_queue_create("serial", DISPATCH_QUEUE_SERIAL);
     dispatch_set_target_queue(queue, dispatch_get_main_queue());
+    NSLog(@"%@",[NSThread currentThread]);//main thread: <NSThread: 0x600000073240>{number = 1, name = main}
+
+//    (lldb) p queue
+//    (OS_dispatch_queue *) $1 = 0x000060800016db00
+//    (lldb) p dispatch_get_current_queue()
+//    (OS_dispatch_queue_main *) $2 = 0x000000010e016b40
     dispatch_async(queue, ^{
-        NSLog(@"%@",[NSThread currentThread]);//main queue
+        NSLog(@"%@",[NSThread currentThread]);//main thread: <NSThread: 0x600000073240>{number = 1, name = main}
+//        (lldb) p dispatch_get_current_queue()
+//        (OS_dispatch_queue *) $3 = 0x000060800016db00
     });
 
+}
+
+- (void)setTargetTask2{
+    dispatch_queue_t queue = dispatch_queue_create("serial2", DISPATCH_QUEUE_SERIAL);
+    dispatch_queue_t glo = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0);
+//    (lldb) p queue
+//    (OS_dispatch_queue *) $3 = 0x00006080003639c0
+//    (lldb) p glo
+//    (OS_dispatch_queue_root *) $4 = 0x0000000104a000c0
+    dispatch_set_target_queue(queue, glo);
+    dispatch_async(queue, ^{
+        NSLog(@"%@",[NSThread currentThread]);
+//        (lldb) p dispatch_get_current_queue()
+//        (OS_dispatch_queue *) $5 = 0x00006080003639c0
+    });
+//    (lldb) p queue
+//    (OS_dispatch_queue *) $3 = 0x00006080003639c0
+//    (lldb) p glo
+//    (OS_dispatch_queue_root *) $4 = 0x0000000104a000c0
+}
+
+- (void)ioTask{
 }
 
 - (void)task1{
