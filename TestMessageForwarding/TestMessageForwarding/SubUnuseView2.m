@@ -21,4 +21,6 @@
 // 运行的时候：
 //  2017-09-02 16:33:20.579 TestMessageForwarding[43810:2608150] UnuseView2 load call
 // 是由于父类中实现了load，所以父类自身初始化的时候调用load，而不是子类初始化的时候调用父类的load
+//
+//  而对于initialize，如果子类没实现，而父类实现了，那么子类在初始化的时候，会在子类调用父类的initialize
 @end

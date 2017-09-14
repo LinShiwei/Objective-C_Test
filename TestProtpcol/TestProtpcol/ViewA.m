@@ -55,13 +55,13 @@
     
 }
 
-- (void)setProperty:(NSString *)property{
-    _property = property;
-}
-
-- (NSString *)property{
-    return _property;
-}
+//- (void)setProperty:(NSString *)property{
+//    _property = property;
+//}
+//
+//- (NSString *)property{
+//    return _property;
+//}
 
 
 
