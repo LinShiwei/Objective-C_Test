@@ -11,6 +11,7 @@
 @implementation GCDtask
 - (void)runTask{
 //    [self syncAndAsync];
+    [self serialAndConcurrentTask];
 //    [self groupTask];
 //    [self barrierTask];
 //    [self sourceTask];
@@ -18,7 +19,7 @@
 //    [self timerTask];
 //    [self suspendTask0];
 //    [self suspendTask];
-    [self setTargetQueueTask];
+//    [self setTargetQueueTask];
 //    [self setTargetTask2];
 
 //    [self task1];
@@ -30,7 +31,7 @@
     dispatch_sync(que, ^{
         NSLog(@"sync : %@",[NSThread currentThread]);
         [NSThread sleepForTimeInterval:3];
-    });
+    });//使用sync的话，不管传入的是什么queue，默认会在当前线程同步执行。也就是说，这里的话，即使传入的是自定义的concurrent queue，实际上执行的线程是 main thread。
     NSLog(@"%@ out of que,",[NSThread currentThread]);
 
     dispatch_queue_t que1 = dispatch_queue_create("cocurr1", DISPATCH_QUEUE_CONCURRENT);
@@ -39,8 +40,51 @@
         [NSThread sleepForTimeInterval:3];
     });
     NSLog(@"%@ out2 of que,",[NSThread currentThread]);
+/*
+ 2017-09-15 09:49:18.862 TestGCD[33003:4229992] sync : <NSThread: 0x6080000652c0>{number = 1, name = main}
+ 2017-09-15 09:49:21.864 TestGCD[33003:4229992] <NSThread: 0x6080000652c0>{number = 1, name = main} out of que,
+ 2017-09-15 09:49:21.865 TestGCD[33003:4229992] <NSThread: 0x6080000652c0>{number = 1, name = main} out2 of que,
+ 2017-09-15 09:49:21.865 TestGCD[33003:4230268] async : <NSThread: 0x600000073380>{number = 3, name = (null)}
+ */
+}
 
-    
+- (void)serialAndConcurrentTask{
+    dispatch_queue_t qConcur = dispatch_queue_create("con", DISPATCH_QUEUE_CONCURRENT);
+    dispatch_queue_t qSeri = dispatch_queue_create("seri", DISPATCH_QUEUE_SERIAL);
+    dispatch_async(qSeri, ^{
+        NSLog(@"async serial : %@",[NSThread currentThread]);
+        [NSThread sleepForTimeInterval:1];
+    });
+    dispatch_async(qSeri, ^{
+        NSLog(@"async serial2 : %@",[NSThread currentThread]);
+        [NSThread sleepForTimeInterval:1];
+    });
+    dispatch_async(qSeri, ^{
+        NSLog(@"async serial3 : %@",[NSThread currentThread]);
+        [NSThread sleepForTimeInterval:1];
+    });//在异步穿行队列中执行多个任务，任务在同一个线程里面执行。一个serial queue 对应一个线程。
+    /*
+     2017-09-15 10:01:14.607 TestGCD[33133:4242884] async serial : <NSThread: 0x608000076e40>{number = 3, name = (null)}
+     2017-09-15 10:01:15.613 TestGCD[33133:4242884] async serial2 : <NSThread: 0x608000076e40>{number = 3, name = (null)}
+     2017-09-15 10:01:16.614 TestGCD[33133:4242884] async serial3 : <NSThread: 0x608000076e40>{number = 3, name = (null)}
+     */
+    dispatch_async(qConcur, ^{
+        NSLog(@"async concurr : %@",[NSThread currentThread]);
+        [NSThread sleepForTimeInterval:1];
+    });
+    dispatch_async(qConcur, ^{
+        NSLog(@"async concurr2 : %@",[NSThread currentThread]);
+        [NSThread sleepForTimeInterval:1];
+    });
+    dispatch_async(qConcur, ^{
+        NSLog(@"async concurr3 : %@",[NSThread currentThread]);
+        [NSThread sleepForTimeInterval:1];
+    });//在异步并发队列中执行多个任务，任务在不同的线程里面执行。也就是说，一个 concurrent queue 对应着多个线程。
+    /*
+     2017-09-15 10:01:14.607 TestGCD[33133:4242881] async concurr2 : <NSThread: 0x600000071980>{number = 5, name = (null)}
+     2017-09-15 10:01:14.607 TestGCD[33133:4242882] async concurr : <NSThread: 0x6080000774c0>{number = 4, name = (null)}
+     2017-09-15 10:01:14.607 TestGCD[33133:4242907] async concurr3 : <NSThread: 0x608000077700>{number = 6, name = (null)}
+     */
 }
 
 - (void)groupTask{

@@ -13,6 +13,7 @@
 		56377BCC1F6A91E2006F3A7D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56377BCA1F6A91E2006F3A7D /* Main.storyboard */; };
 		56377BCE1F6A91E2006F3A7D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56377BCD1F6A91E2006F3A7D /* Assets.xcassets */; };
 		56377BD11F6A91E2006F3A7D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56377BCF1F6A91E2006F3A7D /* LaunchScreen.storyboard */; };
+		56377BDA1F6A92BB006F3A7D /* Task.m in Sources */ = {isa = PBXBuildFile; fileRef = 56377BD91F6A92BB006F3A7D /* Task.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,10 @@
 		56377BCD1F6A91E2006F3A7D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		56377BD01F6A91E2006F3A7D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		56377BD21F6A91E2006F3A7D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56377BD81F6A92BB006F3A7D /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		56377BD91F6A92BB006F3A7D /* Task.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Task.m; sourceTree = "<group>"; };
+		56377BDB1F6A96A2006F3A7D /* define.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = define.h; sourceTree = "<group>"; };
+		56377BDC1F6A96CC006F3A7D /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +63,7 @@
 		56377BC01F6A91E1006F3A7D /* TestLock */ = {
 			isa = PBXGroup;
 			children = (
+				56377BDB1F6A96A2006F3A7D /* define.h */,
 				56377BC41F6A91E1006F3A7D /* AppDelegate.h */,
 				56377BC51F6A91E1006F3A7D /* AppDelegate.m */,
 				56377BC71F6A91E1006F3A7D /* ViewController.h */,
@@ -67,6 +73,9 @@
 				56377BCF1F6A91E2006F3A7D /* LaunchScreen.storyboard */,
 				56377BD21F6A91E2006F3A7D /* Info.plist */,
 				56377BC11F6A91E1006F3A7D /* Supporting Files */,
+				56377BD81F6A92BB006F3A7D /* Task.h */,
+				56377BD91F6A92BB006F3A7D /* Task.m */,
+				56377BDC1F6A96CC006F3A7D /* PrefixHeader.pch */,
 			);
 			path = TestLock;
 			sourceTree = "<group>";
@@ -151,6 +160,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				56377BDA1F6A92BB006F3A7D /* Task.m in Sources */,
 				56377BC91F6A91E1006F3A7D /* ViewController.m in Sources */,
 				56377BC61F6A91E1006F3A7D /* AppDelegate.m in Sources */,
 				56377BC31F6A91E1006F3A7D /* main.m in Sources */,
@@ -274,6 +284,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 544PNK2P78;
+				GCC_PREFIX_HEADER = "/Users/linsw/Documents/MyProject/Objective-C_Test/TestLock/TestLock/PrefixHeader.pch";
 				INFOPLIST_FILE = TestLock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.linshiwei.TestLock;
@@ -286,6 +297,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 544PNK2P78;
+				GCC_PREFIX_HEADER = "/Users/linsw/Documents/MyProject/Objective-C_Test/TestLock/TestLock/PrefixHeader.pch";
 				INFOPLIST_FILE = TestLock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.linshiwei.TestLock;

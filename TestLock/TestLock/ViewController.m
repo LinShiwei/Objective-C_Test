@@ -7,16 +7,36 @@
 //
 
 #import "ViewController.h"
-
+#import "Task.h"
 @interface ViewController ()
-
+@property (nonatomic,strong) Task *task;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    self.task = [[Task alloc] init];
+    __weak ViewController *weakSelf = self;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        ViewController *strongSelf = weakSelf;
+        ClassMethodCallLog(@"dispatch1");
+        [strongSelf.task run];
+        
+        
+    });
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        ViewController *strongSelf = weakSelf;
+        ClassMethodCallLog(@"dispatch2");
+        [strongSelf.task run];
+    });
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        ViewController *strongSelf = weakSelf;
+        ClassMethodCallLog(@"dispatch3");
+        [strongSelf.task run];
+    });
+    
 }
 
 

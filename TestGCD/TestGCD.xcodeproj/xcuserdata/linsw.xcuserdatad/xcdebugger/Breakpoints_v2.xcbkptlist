@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TestGCD/GCDtask.m"
-            timestampString = "525956023.279684"
+            timestampString = "527133669.378679"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "-syncAndAsync"
             landmarkType = "7">
          </BreakpointContent>
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TestGCD/GCDtask.m"
-            timestampString = "525957017.478592"
+            timestampString = "527133669.378679"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "417"
-            endingLineNumber = "417"
+            startingLineNumber = "451"
+            endingLineNumber = "451"
             landmarkName = "-setTargetTask2"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,12 +42,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TestGCD/GCDtask.m"
-            timestampString = "525957017.478592"
+            timestampString = "527133669.378679"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "421"
-            endingLineNumber = "421"
-            landmarkName = "-ioTask"
+            startingLineNumber = "455"
+            endingLineNumber = "455"
+            landmarkName = "-setTargetTask2"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -58,11 +58,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TestGCD/GCDtask.m"
-            timestampString = "525957017.478592"
+            timestampString = "527133669.378679"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "411"
-            endingLineNumber = "411"
+            startingLineNumber = "445"
+            endingLineNumber = "445"
             landmarkName = "-setTargetTask2"
             landmarkType = "7">
          </BreakpointContent>
@@ -74,12 +74,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TestGCD/GCDtask.m"
-            timestampString = "525956747.66925"
+            timestampString = "527133669.378679"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "388"
-            endingLineNumber = "388"
-            landmarkName = "-setTargetQueueTask"
+            startingLineNumber = "422"
+            endingLineNumber = "422"
+            landmarkName = "-suspendTask"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -90,11 +90,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TestGCD/GCDtask.m"
-            timestampString = "525957017.478592"
+            timestampString = "527133669.378679"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "395"
-            endingLineNumber = "395"
+            startingLineNumber = "429"
+            endingLineNumber = "429"
             landmarkName = "-setTargetQueueTask"
             landmarkType = "7">
             <Locations>
@@ -138,11 +138,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TestGCD/GCDtask.m"
-            timestampString = "525957017.478592"
+            timestampString = "527133669.378679"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "392"
-            endingLineNumber = "392"
+            startingLineNumber = "426"
+            endingLineNumber = "426"
             landmarkName = "-setTargetQueueTask"
             landmarkType = "7">
          </BreakpointContent>
@@ -154,13 +154,45 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "TestGCD/GCDtask.m"
-            timestampString = "525957017.478592"
+            timestampString = "527133669.378679"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "400"
-            endingLineNumber = "400"
+            startingLineNumber = "434"
+            endingLineNumber = "434"
             landmarkName = "-setTargetQueueTask"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[GCDtask setTargetQueueTask]"
+                  moduleName = "TestGCD"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/linsw/Documents/MyProject/Objective-C_Test/TestGCD/TestGCD/GCDtask.m"
+                  timestampString = "527133670.51161"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "434"
+                  endingLineNumber = "434"
+                  offsetFromSymbolStart = "174">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__29-[GCDtask setTargetQueueTask]_block_invoke"
+                  moduleName = "TestGCD"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/linsw/Documents/MyProject/Objective-C_Test/TestGCD/TestGCD/GCDtask.m"
+                  timestampString = "527133670.513459"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "435"
+                  endingLineNumber = "435"
+                  offsetFromSymbolStart = "16">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
